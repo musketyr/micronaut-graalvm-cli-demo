@@ -17,8 +17,10 @@ public class MicronautGraalvmCliDemoCommand implements Runnable {
     boolean verbose;
 
     public static void main(String[] args) throws Exception {
-        System.out.print("Got arguments: ");
+        System.out.print("Arguments: ");
         System.out.println(Arrays.toString(args));
+        System.out.print("Environment Variables: ");
+        System.getenv().forEach((k, v) -> System.out.printf("%20s: %100s%n", k, v));
         PicocliRunner.run(MicronautGraalvmCliDemoCommand.class, args);
     }
 
